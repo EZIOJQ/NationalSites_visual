@@ -4,7 +4,8 @@
 
 ### run "proj2_nps.py" to see how it works.
 ### caching files are named nuut user can change them by themselves.
-### make sure you have the google api key to add into the "secret.py" file.
+### make sure you have the google api key and add it into "secrets.py".
+
 references:
 1. https://www.nps.gov/state/al/index.htm
 2. https://developers.google.com/places/web-service/search
