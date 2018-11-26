@@ -7,8 +7,8 @@
 ### make sure you have the google api key and add it into "secrets.py".
 
 #### Each files have different functions:
-	1. alternate_advanced_caching.py is a .py script that contains all caching funcitons and the time of each cache. 
-	2. secrets.py is a file that needs you to input your google api key. To get a google api key, you can check this website https://developers.google.com/places/web-service/get-api-key  
+1. alternate_advanced_caching.py is a .py script that contains all caching funcitons and the time of each cache. 
+2. secrets.py is a file that needs you to input your google api key. To get a google api key, you can check this website https://developers.google.com/places/web-service/get-api-key  
 
 
 
