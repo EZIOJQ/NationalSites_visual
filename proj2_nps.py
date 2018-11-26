@@ -367,42 +367,48 @@ def options():
     print("--help")
 
 
+def wrong():
+	print("Please input valid commend")
+
+
 def main():
-    while True:
+	debug = True
+	while debug:
 
-        options()
-        user_input = input("Please choose a function:\n")
-        if "list" in user_input:
-            
-            try:
-                state_abbr = user_input.split(" ")[1]
-                lst = get_sites_for_state(state_abbr)
-                for site in lst:
-                    print("{}) {}".format(lst.index(site) + 1, site.name))
-                
-                while True:
-	                user_input = input(
-	                    "Please choose a site to get nearby places or map\n")
+		options()
+		user_input = input("Please choose a function:\n")
+		if "list" in user_input:
 
-	                if user_input == "exit":
-	                    break
-	                elif user_input == "help":
-	                    print("those command are: nearby <reuslt_number>,exit,map(show up all the national sites in this state")
-	                    continue
+		    try:
+		        state_abbr = user_input.split(" ")[1]
+		        lst = get_sites_for_state(state_abbr)
+		        for site in lst:
+		            print("{}) {}".format(lst.index(site) + 1, site.name))
+
+		        while debug:
+		            user_input = input(
+		                "Please choose a site to get nearby places or map\n")
+
+		            if user_input == "exit":
+		            	debug = False
+		            	break
+		            elif user_input == "help":
+		                print("those command are: nearby <reuslt_number>,exit,map(show up all the national sites in this state")
+		                continue
 
 
-	                elif "nearby" in user_input:
-	                    
-	                        try:
-	                            index = int(user_input.split(" ")[1])
-	                            national_site = lst[index - 1]
-	                            nearby = get_nearby_places_for_site(
-	                                national_site)
+		            elif "nearby" in user_input:
+		                
+		                    try:
+		                        index = int(user_input.split(" ")[1])
+		                        national_site = lst[index - 1]
+		                        nearby = get_nearby_places_for_site(
+		                            national_site)
 
-	                            for place in nearby:
-	                                print("{}) {}".format(
-	                                    nearby.index(place) + 1, place.name))
-	                            while True:
+		                        for place in nearby:
+		                            print("{}) {}".format(
+		                                nearby.index(place) + 1, place.name))
+		                        while True:
 		                            user_input = input(
 		                                "enter map to show the plot\n")
 		                            if user_input == "map":
@@ -412,28 +418,29 @@ def main():
 		                                    "those command are: exit,map(To show all nearby places together with the site in one plot)")
 		                                continue
 		                            elif user_input == "exit":
+		                                debug  =False
 		                                break
 		                            else:
-		                                print("please input valid commend!")
+		                                wrong()
 
-	                        except:
-	                            print("Please input a index number")
+		                    except:
+		                        wrong()
+		            elif user_input == "map":
 
-	                elif user_input == "map":
+		                plot_sites_for_state(state_abbr)
+		            else:
+		                wrong()
+		    except:
+		        wrong()
 
-	                    plot_sites_for_state(state_abbr)
-	                else:
-	                    print("please input valid commend!")
-            except:
-                print("Please input a state abbr")
-
-        elif user_input == "exit":
-            break
-        elif user_input == "help":
-            print("those command are: list(Show national sites of a specific state, you need to input the state abbr), exit")
-            continue
-        else:
-            print("please input valid commend!")
+		elif user_input == "exit":
+			debug = False
+			break
+		elif user_input == "help":
+		    print("those command are: list(Show national sites of a specific state, you need to input the state abbr), exit")
+		    continue
+		else:
+		    wrong()
 
 
 main()
