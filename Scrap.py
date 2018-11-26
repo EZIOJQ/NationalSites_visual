@@ -66,8 +66,25 @@ for lst in list_site:
 	address_city = soup2.find(itemprop = "addressLocality").get_text()
 	address_state = soup2.find(itemprop = "addressRegion").get_text()
 	address_zip = soup2.find(itemprop = "postalCode").get_text()
+
+def check_cache_google(uni_url,baseurl,pd): 
 	
-	print(address_city)
+    if secondry_cache.get(uni_url) is None:
+        data = requests.get(baseurl,pd)
+        html_text = data.text
+        secondry_cache.set(uni_url,html_text,30)
+
+
+
+base_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?"
+pd = {}
+pd["key"] = google_places_key
+pd["query"]= national_site
+uni_url = params_unique_combination(baseurl, pd)
+check_cache_google(uni_url,baseurl,pd)
+print(secondry_cache.get(uni_url))
+
+
 
 
 

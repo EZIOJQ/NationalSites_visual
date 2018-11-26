@@ -38,6 +38,8 @@ from datetime import datetime
 ##############
 
 
+
+
 def create_id(site, topic):
     return "{}_{}_{}.json".format(site, topic, str(datetime.now()).replace(' ', ''))
 

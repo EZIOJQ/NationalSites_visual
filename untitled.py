@@ -1,8 +1,8 @@
 
-# import plotly.plotly as py
-# import plotly.graph_objs as go
-# import plotly
-# plotly.tools.set_credentials_file(username='Jay_C', api_key='N4SLfGx0p5UURNqudSFx')
+import plotly.plotly as py
+import plotly.graph_objs as go
+import plotly
+plotly.tools.set_credentials_file(username='Jay_C', api_key='N4SLfGx0p5UURNqudSFx')
 # # Create random data with numpy
 # # import numpy as np
 
