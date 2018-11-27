@@ -10,6 +10,7 @@ from alternate_advanced_caching import Cache
 import plotly.plotly as py
 import plotly.graph_objs as go
 import plotly
+
 plotly.tools.set_credentials_file(
     username='Jay_C', api_key='N4SLfGx0p5UURNqudSFx')
 
@@ -111,8 +112,19 @@ def get_sites_for_state(state_abbr):
         # print(address_url)
         lst_url.append(address_url)
         check_cache(lst_url)
-        soup2 = bsoup(primary_cache.get(address_url), features="html.parser")
-        address_name = soup2.find(itemprop="streetAddress").get_text()
+        soup2 = bsoup(primary_cache.get(address_url), features = "html.parser")
+        if soup2.find("span", itemprop = "postOfficeBoxNumber"):
+            address_name = "P.O. Box " + soup2.find("span", itemprop = "postOfficeBoxNumber").get_text()
+            
+        else:
+            address_name = soup2.find("span", itemprop = "streetAddress").get_text()
+        # print(address_name)
+        # soup2 = bsoup(primary_cache.get(address_url), features="html.parser")
+        # if not soup2.find(itemprop="streetAddress"):
+        #     address_name = "P.O. Box" + soup2.find(itemprop="postOfficeBoxNumber").get_text()
+        # else:
+        #     address_name = soup2.find(itemprop="streetAddress").get_text()
+        # print
         address_city = soup2.find(itemprop="addressLocality").get_text()
         address_state = soup2.find(itemprop="addressRegion").get_text()
         address_zip = soup2.find(itemprop="postalCode").get_text()
@@ -121,7 +133,7 @@ def get_sites_for_state(state_abbr):
     return National_site
 
 
-MI = get_sites_for_state("MI")[0]
+MI = get_sites_for_state("CA")
 
 
 # Must return the list of NearbyPlaces for the specifite NationalSite
