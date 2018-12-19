@@ -2,7 +2,7 @@
 (To run this project, you must have a google APIkey, to get a google APIkey, you can check this website for instructions: https://developers.google.com/places/web-service/get-api-key)
 
 
-## This project allows you to get scatter plotting graphs contain each national sites in USA and get the information of the nearby places around each of them.
+## This project allows you to get scatter plotting graphs contain every national sites listed on nps.gov and get the information of nearby places around each of them via google map api.
 
 
 ## How to run this project:
