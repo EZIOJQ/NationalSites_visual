@@ -1,6 +1,3 @@
-# proj_nps.py
-# Skeleton for Project 2, Fall 2018
-# ~~~ modify this file, but don't rename it ~~~
 from secrets import google_places_key
 import requests
 import json
@@ -15,13 +12,7 @@ plotly.tools.set_credentials_file(
     username='Jay_C', api_key='N4SLfGx0p5UURNqudSFx')
 
 
-# you can, and should add to and modify this class any way you see fit
-# you can add attributes and modify the __init__ parameters,
-# as long as tests still pass
-##
-# the starter code is here just to make the tests run (and fail)
 
-#----------------------------------------------------------------START SCRAPPING
 def Scrap(items):
     soup = BeautifulSoup(open("index.html"))
 
@@ -43,14 +34,9 @@ class NationalSite():
         self.adjust_address = self.address_string
 
     def __str__(self):
-        # return <name> (<type>): <address string>
-        return "{} ({}): {}".format(self.name, self.type, self.adjust_address)
-# you can, and should add to and modify this class any way you see fit
 
-# you can add attributes and modify the __init__ parameters,
-# as long as tests still pass
-##
-# the starter code is here just to make the tests run (and fail)
+        return "{} ({}): {}".format(self.name, self.type, self.adjust_address)
+
 
 
 class NearbyPlace():
@@ -68,14 +54,8 @@ class NearbyPlace():
         return self.location["lng"]
 
 
-# Must return the list of NationalSites for the specified state
-# param: the 2-letter state abbreviation, lowercase
-# (OK to make it work for uppercase too)
-# returns: all of the NationalSites
-# (e.g., National Parks, National Heritage Sites, etc.) that are listed
-# for the state at nps.gov
 lst_url = []
-# state_abbr = input("Please input a shortcut of the place")
+
 CACHE_FNAME = "sample_cache_national_site.json"
 CACHE_FNAME_Google = "google_cache.json"
 primary_cache = Cache(CACHE_FNAME)
@@ -112,19 +92,14 @@ def get_sites_for_state(state_abbr):
         # print(address_url)
         lst_url.append(address_url)
         check_cache(lst_url)
-        soup2 = bsoup(primary_cache.get(address_url), features = "html.parser")
-        if soup2.find("span", itemprop = "postOfficeBoxNumber"):
-            address_name = "P.O. Box " + soup2.find("span", itemprop = "postOfficeBoxNumber").get_text()
-            
+        soup2 = bsoup(primary_cache.get(address_url), features="html.parser")
+        if soup2.find("span", itemprop="postOfficeBoxNumber"):
+            address_name = "P.O. Box " + \
+                soup2.find("span", itemprop="postOfficeBoxNumber").get_text()
+
         else:
-            address_name = soup2.find("span", itemprop = "streetAddress").get_text()
-        # print(address_name)
-        # soup2 = bsoup(primary_cache.get(address_url), features="html.parser")
-        # if not soup2.find(itemprop="streetAddress"):
-        #     address_name = "P.O. Box" + soup2.find(itemprop="postOfficeBoxNumber").get_text()
-        # else:
-        #     address_name = soup2.find(itemprop="streetAddress").get_text()
-        # print
+            address_name = soup2.find(
+                "span", itemprop="streetAddress").get_text()
         address_city = soup2.find(itemprop="addressLocality").get_text()
         address_state = soup2.find(itemprop="addressRegion").get_text()
         address_zip = soup2.find(itemprop="postalCode").get_text()
@@ -133,14 +108,6 @@ def get_sites_for_state(state_abbr):
     return National_site
 
 
-MI = get_sites_for_state("CA")
-
-
-# Must return the list of NearbyPlaces for the specifite NationalSite
-# param: a NationalSite object
-# returns: a list of NearbyPlaces within 10km of the given site
-# if the site is not found by a Google Places search, this should
-# return an empty list
 
 def check_cache_google(uni_url, baseurl, pd):
 
@@ -181,7 +148,7 @@ def get_nearby_places_for_site(national_site):
     loc = get_lat_lng(national_site)
     base_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"
     pd = {}
-    pd["key"] = google_places_key
+    pd["key"] = "AIzaSyBpDQz36s3Lehky0oUgGCg_1gsq-d-NZcw"
     pd["location"] = loc
     pd["radius"] = 10000
     uni_url = params_unique_combination(base_url, pd)
@@ -195,16 +162,7 @@ def get_nearby_places_for_site(national_site):
     return nearby_site_lst[1:]
 
 
-# print(get_lat_lng(MI))
-# print(get_nearby_places_for_site(MI))
 
-# Must plot all of the NationalSites listed for the state on nps.gov
-# Note that some NationalSites might actually be located outside the state.
-# If any NationalSites are not found by the Google Places API they should
-# be ignored.
-# param: the 2-letter state abbreviation
-# returns: nothing
-# side effects: launches a plotly page in the web browser
 
 def find_max_min(lat_vals, lon_vals):
 
@@ -289,12 +247,6 @@ def plot_sites_for_state(state_abbr):
     fig = dict(data=data, layout=layout)
     py.plot(fig, validate=False, filename='usa - nationsites')
 
-# plot_sites_for_state("MI")
-
-# ## Must plot up to 20 of the NearbyPlaces found using the Google Places API
-# ## param: the NationalSite around which to search
-# ## returns: nothing
-# ## side effects: launches a plotly page in the web browser
 
 
 def plot_nearby_for_site(national_site):
@@ -370,7 +322,7 @@ def plot_nearby_for_site(national_site):
         py.plot(fig, validate=False, filename='usa-nation-sites-nearby')
 
 
-# plot_nearby_for_site(MI)
+
 
 def options():
 
@@ -380,79 +332,81 @@ def options():
 
 
 def wrong():
-	print("Please input valid commend")
+    print("Please input valid commend")
 
 
 def main():
-	debug = True
-	while debug:
+    debug = True
+    while debug:
 
-		options()
-		user_input = input("Please choose a function:\n")
-		if "list" in user_input:
+        options()
+        user_input = input("Please choose a function:\n")
+        if "list" in user_input:
 
-		    try:
-		        state_abbr = user_input.split(" ")[1]
-		        lst = get_sites_for_state(state_abbr)
-		        for site in lst:
-		            print("{}) {}".format(lst.index(site) + 1, site.name))
+            try:
+                state_abbr = user_input.split(" ")[1]
+                lst = get_sites_for_state(state_abbr)
+                for site in lst:
+                    print("{}) {}".format(lst.index(site) + 1, site.name))
 
-		        while debug:
-		            user_input = input(
-		                "Please choose a site to get nearby places or map\n")
+                while debug:
+                    user_input = input(
+                        "Please choose a site to get nearby places or map\n")
 
-		            if user_input == "exit":
-		            	debug = False
-		            	break
-		            elif user_input == "help":
-		                print("those command are: nearby <reuslt_number>,exit,map(show up all the national sites in this state")
-		                continue
+                    if user_input == "exit":
+                        debug = False
+                        break
+                    elif user_input == "help":
+                        print(
+                            "those command are: nearby <reuslt_number>,exit,map(show up all the national sites in this state")
+                        continue
 
+                    elif "nearby" in user_input:
 
-		            elif "nearby" in user_input:
-		                
-		                    try:
-		                        index = int(user_input.split(" ")[1])
-		                        national_site = lst[index - 1]
-		                        nearby = get_nearby_places_for_site(
-		                            national_site)
+                        try:
+                            index = int(user_input.split(" ")[1])
+                            national_site = lst[index - 1]
+                            nearby = get_nearby_places_for_site(
+                                national_site)
 
-		                        for place in nearby:
-		                            print("{}) {}".format(
-		                                nearby.index(place) + 1, place.name))
-		                        while True:
-		                            user_input = input(
-		                                "enter map to show the plot\n")
-		                            if user_input == "map":
-		                                plot_nearby_for_site(national_site)
-		                            elif user_input == "help":
-		                                print(
-		                                    "those command are: exit,map(To show all nearby places together with the site in one plot)")
-		                                continue
-		                            elif user_input == "exit":
-		                                debug  =False
-		                                break
-		                            else:
-		                                wrong()
+                            for place in nearby:
+                                print("{}) {}".format(
+                                    nearby.index(place) + 1, place.name))
+                            while True:
+                                user_input = input(
+                                    "enter map to show the plot\n")
+                                if user_input == "map":
+                                    plot_nearby_for_site(national_site)
+                                    break
 
-		                    except:
-		                        wrong()
-		            elif user_input == "map":
+                                elif user_input == "help":
+                                    print(
+                                        "those command are: exit,map(To show all nearby places together with the site in one plot)")
+                                    continue
+                                elif user_input == "exit":
+                                    debug = False
+                                    break
+                                else:
+                                    wrong()
 
-		                plot_sites_for_state(state_abbr)
-		            else:
-		                wrong()
-		    except:
-		        wrong()
+                        except:
+                            wrong()
+                    elif user_input == "map":
 
-		elif user_input == "exit":
-			debug = False
-			break
-		elif user_input == "help":
-		    print("those command are: list(Show national sites of a specific state, you need to input the state abbr), exit")
-		    continue
-		else:
-		    wrong()
+                        plot_sites_for_state(state_abbr)
+                    else:
+                        wrong()
+            except:
+                wrong()
+
+        elif user_input == "exit":
+            debug = False
+            break
+        elif user_input == "help":
+            print("those command are: list(Show national sites of a specific state, you need to input the state abbr), exit")
+            continue
+        else:
+            wrong()
 
 
 main()
