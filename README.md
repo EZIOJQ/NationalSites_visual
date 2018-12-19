@@ -62,8 +62,9 @@ Sample dataset:
 ![Michigan](https://github.com/EZIOJQ/SI508-Project2/raw/master/Sample_Michigan_Nationalsite.png)
 
 Sample dataset:
-|lat	| lon	| text
-|------------ | :----------: | :----------: 
+
+| lat	| lon | text
+|---------- | :----------: | :----------: 
 |47.9958654	|-88.9092899	|800 East Lakeshore Drive, Houghton, MI 49931
 |47.2423094	|-88.448106	|25970 Red Jacket Road, Calumet, MI 49913
 |42.329549	|-83.0393779	|200 Renaissance Center, Suite 3148, Detroit, MI 48243
