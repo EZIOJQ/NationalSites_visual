@@ -62,15 +62,15 @@ Sample dataset:
 ![Michigan](https://github.com/EZIOJQ/SI508-Project2/raw/master/Sample_Michigan_Nationalsite.png)
 
 Sample dataset:
-|lat	|lon	|text
-|-----|:-----:|:------:
+|lat	| lon	| text
+|------------ | :----------: | :----------: 
 |47.9958654	|-88.9092899	|800 East Lakeshore Drive, Houghton, MI 49931
 |47.2423094	|-88.448106	|25970 Red Jacket Road, Calumet, MI 49913
 |42.329549	|-83.0393779	|200 Renaissance Center, Suite 3148, Detroit, MI 48243
 |46.5614384	|-86.3213064	|P.O. Box 40, Munising, MI 49862
 |41.9112005	|-83.37672649999999	|1403 East Elm Street, Monroe, MI 48162
 |44.8757238	|-85.9996747	|9922 Front Street, Empire, MI 49630
- 
+
 * Anytime you want to quit, input "exit". And anytime you need help, just input "help".
 
 ## Caching
