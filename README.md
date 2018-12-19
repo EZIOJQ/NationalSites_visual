@@ -45,6 +45,24 @@ enter map to show the plot
 * Or input "MAP" to see the plot of these national sites.
 ![Michigan](https://github.com/EZIOJQ/SI508-Project2/raw/master/Sample_Michigan_Nationalsite.png)
 
+## Sample datasets are as follow:
+```
+Trace 0, lat	Trace 0, lon	Trace 1, lat	Trace 1, lon	text
+47.9958654	'-88.9092899	47.9707203	-88.9714702	South Lake Desor Campground
+		47.9851937	-88.8057275	Malone Bay Campground
+		48.0212723	-88.8470217	Hatchet Lake Campground
+		48.0526305	-88.8221059	Todd Harbor Campground
+		48.0128939	-88.8436889	Crystal Cove
+		47.9942394	-88.9153876	Ishpeming Point
+		47.9865521	-88.8878574	Isle Royale Wilderness
+		48.020162	-88.9270227	Little Todd Campground
+		47.9809978	-88.9936921	North Lake Desor Campground
+		47.9339129	-88.9398691	Hay Bay Campground
+		47.9339388	-88.9404237	Hay Bay Boat Launch
+		47.9851665	-88.7998894	Malone Bay Ranger Station
+		47.9840714	-88.8000813	Malone Bay Boat Launch
+```
+
 ### caching files are "sample_cache_national_site.json" and "google_cache.json"
 ### caching files are named but you can change them by themselves.
 ### you may need to install BeautifulSoup4 and Plotly packages. You can use "pip3 install bs4" or "pip3 install plotly" to achieve that.
