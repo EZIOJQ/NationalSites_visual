@@ -1,7 +1,11 @@
-# Data visualization - NationalSites
+# NationalSites
 (To run this project, you must have a google APIkey, to get a google APIkey, you can check this website for instructions: https://developers.google.com/places/web-service/get-api-key)
 
-## How to run this project?
+
+## This project allows you to get scatter plotting graphs contain each national sites in USA and get the information of the nearby places around each of them.
+
+
+## How to run this project:
 * Install Python packages BeautifulSoup4 and Plotly. 
 ```
 $ pip3 install bs4 
