@@ -46,8 +46,9 @@ enter map to show the plot
 ![Michigan](https://github.com/EZIOJQ/SI508-Project2/raw/master/Sample_Michigan_Nationalsite.png)
 
 ## Sample datasets are as follow:
-```
-Trace 0, lat	Trace 0, lon	Trace 1, lat	Trace 1, lon	text
+
+| Trace 0, lat | Trace 0, lon | Trace 1, lat | Trace 1, lon | text
+| ------------ | :----------: | :----------: | :----------: | :---------: 
 47.9958654	'-88.9092899	47.9707203	-88.9714702	South Lake Desor Campground
 		47.9851937	-88.8057275	Malone Bay Campground
 		48.0212723	-88.8470217	Hatchet Lake Campground
