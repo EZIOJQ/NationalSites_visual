@@ -21,7 +21,7 @@ list mi
 7) Sleeping Bear Dunes
 Please choose a site to get nearby places or map
 ```
-* Input the index of one national site to see the nearby places
+* Input the index of one national site to see the nearby places.
 ```
 nearby 1
 1) South Lake Desor Campground
@@ -39,7 +39,10 @@ nearby 1
 13) Malone Bay Boat Launch
 enter map to show the plot
 ```
-* Or input MAP to see the plot of these national sites
+	* Input "MAP" to see the nearby places around one national site.
+	![Michigan_Nearby]()
+
+* Or input "MAP" to see the plot of these national sites.
 ![Michigan](https://github.com/EZIOJQ/SI508-Project2/raw/master/Sample_Michigan_Nationalsite.png)
 
 ### caching files are "sample_cache_national_site.json" and "google_cache.json"
