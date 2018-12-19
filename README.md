@@ -2,6 +2,11 @@
 (To run this project, you must have a google APIkey, to get a google APIkey, you can check this website for instructions: https://developers.google.com/places/web-service/get-api-key)
 
 ## How to run this project?
+* Install Python packages BeautifulSoup4 and Plotly. 
+```
+$ pip3 install bs4 
+$ pip3 install plotly
+```
 * Run "proj2_nps.py", you will see in your terminal as follow:
 ```
 --list <stateabbr>
@@ -42,10 +47,7 @@ enter map to show the plot
 * Input "MAP" to see the nearby places around one national site.
 ![Michigan_Nearby](https://github.com/EZIOJQ/SI508-Project2/raw/master/Sample_Michigan_nearbyplaces.png)
 
-* Or input "MAP" to see the plot of these national sites.
-![Michigan](https://github.com/EZIOJQ/SI508-Project2/raw/master/Sample_Michigan_Nationalsite.png)
-
-## Sample datasets are as follow:
+Sample dataset:
 
 | Trace 0, lat | Trace 0, lon | Trace 1, lat | Trace 1, lon | text 
 | ------------ | :----------: | :----------: | :----------: | :---------: 
@@ -56,21 +58,33 @@ enter map to show the plot
 |	|	|47.9942394	| -88.9153876	|Ishpeming Point
 |	|	|47.9865521	|-88.8878574	|Isle Royale Wilderness
 
-### caching files are "sample_cache_national_site.json" and "google_cache.json"
-### caching files are named but you can change them by themselves.
-### you may need to install BeautifulSoup4 and Plotly packages. You can use "pip3 install bs4" or "pip3 install plotly" to achieve that.
-### make sure you have the google api key and add it into "secrets.py".
+* Or input "MAP" to see the plot of these national sites.
+![Michigan](https://github.com/EZIOJQ/SI508-Project2/raw/master/Sample_Michigan_Nationalsite.png)
 
-#### Each files have different functions:
-1. alternate_advanced_caching.py is a .py script that contains all caching funcitons and the time of each cache. 
-2. secrets.py is a file that needs you to input your google api key. To get a google api key, you can check this website   
+Sample dataset:
+|lat	|lon	|text
+|-----|:-----:|:------:
+|47.9958654	|-88.9092899	|800 East Lakeshore Drive, Houghton, MI 49931
+|47.2423094	|-88.448106	|25970 Red Jacket Road, Calumet, MI 49913
+|42.329549	|-83.0393779	|200 Renaissance Center, Suite 3148, Detroit, MI 48243
+|46.5614384	|-86.3213064	|P.O. Box 40, Munising, MI 49862
+|41.9112005	|-83.37672649999999	|1403 East Elm Street, Monroe, MI 48162
+|44.8757238	|-85.9996747	|9922 Front Street, Empire, MI 49630
+ 
+* Anytime you want to quit, input "exit". And anytime you need help, just input "help".
 
-#### An example to run:
-1. run the proj2_nps.py, then choose which state you want to see. You should input like "list mi" or "list ca" for example.
-2. It will give you a list of all national sites in this state, and you can simply use "map" command to get the plot of these sites on the map. A new popup website will show up.
-3. If you want to get more information about the nearby places of this national site, you can input "nearby < index >". (The index number of which site you want to know more). 
-4. it will give you a map contains all nearby places of this site.
-5. Anytime you want to quit, input "exit". And anytime you need help, just input "help".
+## Caching
+
+* "Sample_cache_national_site.json" and "google_cache.json" are the sample cache files.
+* Caching files are named. You can change them in line 59-60 in in "proj2_nps.py"
+```
+CACHE_FNAME = "sample_cache_national_site.json"
+CACHE_FNAME_Google = "google_cache.json"
+```
+
+## Other files
+
+* "alternate_advanced_caching.py" is a .py script that contains all caching functions and valid time for each cache. 
 
 
 
