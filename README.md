@@ -40,7 +40,7 @@ nearby 1
 enter map to show the plot
 ```
 	* Input "MAP" to see the nearby places around one national site.
-	![Michigan_Nearby]()
+	![Michigan_Nearby](https://github.com/EZIOJQ/SI508-Project2/raw/master/Sample_Michigan_nearbyplaces.png)
 
 * Or input "MAP" to see the plot of these national sites.
 ![Michigan](https://github.com/EZIOJQ/SI508-Project2/raw/master/Sample_Michigan_Nationalsite.png)
